@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web" rel="stylesheet">
+        <style type="text/css">
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .corpo {
+                color: #1A1A1A;
+                font-family: Titillium Web, sans-serif;
+                font-size: 15px;
+                padding: 30px;
+            }
+
+            .tabela {
+                background: linear-gradient(180deg, #EBC9A4, #FFF);
+                max-width: 450px;
+                padding: 10px;
+                margin: 0 auto;
+                border-radius: 20px;
+                box-shadow: 0px 20px 40px rgba(15, 15, 15, 0.2);
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            .codigo {
+                width: 120px;
+                color: #FFF;
+                padding: 5px 8px;
+                border-radius: 20px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 20px;
+                background: linear-gradient(180deg, #9B7E5E, #EBC9A4);
+                margin: 0 auto;
+                letter-spacing: 2px;
+            }
+        </style>
+    </head>
+
+    <body class="corpo">
+        <table class="tabela">
+            <tr>
+                <td style="text-align: center; background-color: white; border-radius: 15px;">
+                    <img style="width: 60%" src="https://images2.imgbox.com/dd/74/1EAoXs3M_o.jpg">
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding-top: 15px;">
+                    <p style="margin-bottom: 15px;">
+                        Olá, <strong>${username}</strong>, tudo bem?
+                        <br/>
+                        <br/>
+                        Obrigado por escolher o Prateleira Virtual (PV) como o seu organizador online de leitura. É um prazer te ter conosco e nós temos uma boa notícia para você: <strong>a sua conta está quase pronta!</strong> Para ativá-la, basta utilizar o código abaixo:
+                    </p>
+
+                    <p class="codigo">
+                        ${codigo}
+                    </p>
+
+                    <p style="margin-top: 15px;">
+                        Mas, <strong>ATENÇÃO!</strong> O seu código só dura <strong>15 minutos</strong> e ele foi emitido em <strong>${emissao?date?string["dd/MM/yyyy"]}</strong> às <strong>${emissao?time?string["HH:mm:ss a"]}</strong>. Caso ele expire, será necessário solicitar um novo.
+                        <br/>
+                        <br/>
+                        Esperamos que você curta o PV. Nossa equipe, sempre dedicada, preparou tudo para que você possa ter a melhor experiência. Seja bem-vindo(a)! 🥰
+                    </p>
+
+                    <p style="font-style: italic; text-align: right; margin: 15px 0px;">
+                        Atenciosamente, Equipe PV.
+                    </p>
+
+                    <p style="text-align: right; font-style: italic; font-size: 11px;">
+                        Mensagem enviada para:
+                        <br/>
+                        <a href="#">${email}</a>
+                        <br/>
+                        Por: Prateleira Virtual,
+                        <br/>
+                        em algum lugar do Cyberverso no Brasil.
+                    </p>
+                </td>
+            </tr>		
+        </table>
+    </body>
+</html>
