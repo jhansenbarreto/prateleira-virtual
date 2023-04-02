@@ -22,7 +22,7 @@
         <modelmapper.version>3.0.0</modelmapper.version>
         <box.version>3.7.1</box.version>
         <jbcrypt.version>0.4</jbcrypt.version>
-        <springdoc.version>2.0.2</springdoc.version>
+        <springdoc.version>2.0.4</springdoc.version>
     </properties>
     
     <dependencies>
