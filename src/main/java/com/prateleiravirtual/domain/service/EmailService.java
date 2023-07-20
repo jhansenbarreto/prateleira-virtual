@@ -1,6 +1,7 @@
 package com.prateleiravirtual.domain.service;
 
 import jakarta.validation.constraints.NotEmpty;
+import java.io.InputStream;
 
 import java.util.Map;
 import java.util.Set;
@@ -44,5 +45,8 @@ public interface EmailService {
 
         @Singular("variavel")
         private Map<String, Object> variaveis;
+
+        @Singular
+        private Set<InputStream> anexos;
     }
 }

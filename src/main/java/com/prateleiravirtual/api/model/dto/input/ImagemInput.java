@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Getter
 @Setter
-@Schema(description = "Representação dos dados de entrada para atualização de uma imagem (Obra ou Usuario)")
+@Schema(description = "Representação dos dados de entrada para atualização de uma imagem (Autor, Obra ou Usuario)")
 public class ImagemInput {
 
     @NotNull

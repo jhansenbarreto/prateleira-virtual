@@ -18,10 +18,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     /**
-     * Método que adiciona configurações de Cross-Origin Resource Sharing à API.
-     * Cross-Origin Resource Sharing (CORS) é um mecanismo que permite que
-     * recursos restritos em uma página da web sejam recuperados por outro
-     * domínio fora do domínio ao qual pertence o recurso que será recuperado.
+     * Método que adiciona configurações de Cross-Origin Resource Sharing (CORS)
+     * à API. CORS é um mecanismo que permite os recursos restritos em uma
+     * página da web serem recuperados por outro domínio fora do domínio ao qual
+     * pertence o recurso que será recuperado.
      *
      * Para informações mais detalhadas acesse:
      * https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing

@@ -8,9 +8,14 @@ import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 
 import jakarta.mail.MessagingException;
+import jakarta.mail.util.ByteArrayDataSource;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -41,17 +46,40 @@ public class EnvioEmailSMTPImpl implements EmailService {
     public void enviar(Email email) {
         try {
             var message = mailSender.createMimeMessage();
-            var helper = new MimeMessageHelper(message, "UTF-8");
+            var helper = new MimeMessageHelper(message, true, "UTF-8");
 
             helper.setFrom(emailProperties.getRemetente());
             helper.setTo(email.getDestinatarios().toArray(String[]::new));
             helper.setSubject(email.getAssunto());
             helper.setText(getBodyMailTemplate(email.getCorpo(), email.getVariaveis()), true);
 
+            adicionarAnexos(helper, email.getAnexos());
+
             mailSender.send(message);
 
         } catch (MessagingException | MailException ex) {
             throw new EnvioEmailException("Não foi possível enviar e-mail.", ex);
+        }
+    }
+
+    /**
+     * Método exclusivo para adição de anexos PDF em um e-mail.
+     *
+     * @param helper (objeto MimeMessageHelper)
+     * @param anexos (coleção de InputStream dos arquivos que serão enviados)
+     */
+    private void adicionarAnexos(MimeMessageHelper helper, Set<InputStream> anexos) {
+        if (anexos != null && !anexos.isEmpty()) {
+            anexos.forEach(anexo -> {
+                try {
+                    helper.addAttachment(
+                            String.format("%d.pdf", new Date().getTime()),
+                            new ByteArrayDataSource(anexo, MediaType.APPLICATION_PDF_VALUE)
+                    );
+                } catch (MessagingException | IOException ex) {
+                    throw new EnvioEmailException("Erro ao adicionar anexos.", ex);
+                }
+            });
         }
     }
 
