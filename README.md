@@ -3,7 +3,7 @@
 </p>
 <h1></h1>
 <p align="center">
-  <img src="https://img.shields.io/static/v1?style=for-the-badge&label=Spring Boot&message=3.0.6&color=6DB33F&logo=springboot"/>
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&label=Spring Boot&message=3.1.1&color=6DB33F&logo=springboot"/>
   <img src="https://img.shields.io/static/v1?style=for-the-badge&label=JDK&message=17.0.4.1&color=FFFFFF&logo=openjdk"/>
   <img src="https://img.shields.io/static/v1?style=for-the-badge&label=MySQL&message=8.0.30&color=4479A1&logo=mysql&logoColor=FFFFFF"/>
   <img src="https://img.shields.io/static/v1?style=for-the-badge&label=JUnit&message=5.9.2&color=25A162&logo=junit5"/>
